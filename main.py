@@ -1,16 +1,110 @@
-# This is a sample Python script.
+import math
+import numpy as np
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+# Задачи на циклы и оператор условия------
+# ----------------------------------------
+gl_run = [5]  # массив для блокировки выполнения некоторых заданий
+"""
+Задача 1
 
+Вывести на экран циклом пять строк из нулей длиной 4, причем каждая строка должна быть пронумерована.
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+Пример:
+    0 0000
+    1 0000
+    2 0000
+    3 0000
+....
+"""
 
+if 1 in gl_run:
+    print('Задание 1-------------------------------------------------------------------------------')
+    i = 1
+    while i < 6:
+        print(str(i) + ' ', end='')
+        for ii in range(6):
+            print(0, end='')
+        print('')
+        i += 1
+    print('Окончание выполненеия Задания 1----------------------------------------------------------\n\n')
+'''
+Задача 2
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+Пользователь в цикле вводит 10 производных цифр. Выведите количество введенных пользователем цифр 5.
+'''
+if 2 in gl_run:
+    print('Задание 2-------------------------------------------------------------------------------')
+    inp = []
+    for i in range(10):
+        inp.append(int(input('Введите цифру ' + str(i + 1) + ":")))
+    five_count = 0
+    five_words = ['ноль', 'одну', 'две', 'три', 'четыре', 'пять', 'шесть', 'семь', 'восемь', 'девять', 'десять']
+    five_word_ends = ['пятёрок', 'пятёрку', 'пятёрки', 'пятёрки', 'пятёрки', 'пятёрок', 'пятёрок', 'пятёрок', 'пятёрок',
+                      'пятёрок', 'пятёрок']
+    for i in range(10):
+        if inp[i] == 5:
+            five_count += 1
+    print(f'Вы ввели {five_words[five_count]} {five_word_ends[five_count]}.')
+    print('Окончание выполненеия Задания 2----------------------------------------------------------\n\n')
+'''
+Задача 3
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+Вывести сумму ряда чисел от 1 до 100. Полученный результат вывести на экран.
+'''
+if 3 in gl_run:
+    print('Задание 3-------------------------------------------------------------------------------')
+    nums = []
+    nums = np.array(nums)
+    for i in range(100):
+        nums = np.append(nums, int(i + 1))
+    print(nums)
+    print(np.sum(nums))  # Решение с применением numpy
+    sum = 0
+    for i in range(100):
+        sum += nums[i]
+    print(sum)  # ершение с применением поэлементного обхода массива
+    print('Окончание выполненеия Задания 3----------------------------------------------------------\n\n')
+'''
+Задача 4
+
+Найти произведение ряда чисел от 1 до 10. Полученный результат вывести на экран(можно поискать в интернете алгоритм
+факториала в python).
+'''
+if 4 in gl_run:
+    print('Задание 4-------------------------------------------------------------------------------')
+    nums = []
+    nums = np.array(nums, dtype=int)
+    for i in range(100):
+        # nums = np.append(nums, np.intc(i + 1))
+        nums = np.append(nums, int(i + 1))
+    print(nums)
+    # fact=np.longdouble(1)
+    fact = 1
+    # fact=np.astype('int64')
+    for i in range(100):
+        fact *= int(nums[i])
+    print(fact) #Решение через цикл
+
+    fact1 = math.factorial(nums[99])
+    print(fact1)  # Решение через функцию factorial
+
+    print('Окончание выполненеия Задания 4----------------------------------------------------------\n\n')
+
+'''
+(!!!Подсказка на следующую задачу - превратите число в строку, а потом работайте с строкой)
+Задача 5
+
+Вывести цифры числа на каждой новой строке.
+
+Пример:
+     123567
+
+     1
+     2
+     3
+     4
+     5
+     6
+     7
+
+'''
