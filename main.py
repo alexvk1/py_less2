@@ -3,7 +3,7 @@ import numpy as np
 
 # Задачи на циклы и оператор условия------
 # ----------------------------------------
-gl_run = [10]  # массив для блокировки выполнения некоторых заданий
+gl_run = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]  # массив для блокировки выполнения некоторых заданий
 """
 Задача 1
 
@@ -108,24 +108,26 @@ if 4 in gl_run:
 
 '''
 
+
 def get_val_size(val):
     sizen = 1;
     vall = val
     cont = True
     while cont:
-        vall=vall//10
-        if vall==0:
-            cont=False
+        vall = vall // 10
+        if vall == 0:
+            cont = False
         else:
-            sizen+=1
+            sizen += 1
     return sizen
 
+
 def get_digit(val, n):
-    size=get_val_size(val)
-    #print(f'size: {size}')
-    #print('val: ' + str(val))
-    #print(f'n:{10 ** n}')
-    ret=(val // (10 ** ((size-n))))%10
+    size = get_val_size(val)
+    # print(f'size: {size}')
+    # print('val: ' + str(val))
+    # print(f'n:{10 ** n}')
+    ret = (val // (10 ** ((size - n)))) % 10
     return (ret)
 
 
@@ -139,7 +141,7 @@ if 5 in gl_run:
         print(var_str[i])
     print('Вариант с разбором разрядов цифр')
     for i in range(get_val_size(var_num)):
-        print(get_digit(var_num, i+1))
+        print(get_digit(var_num, i + 1))
 
     print('Окончание выполнения Задания 5----------------------------------------------------------\n\n')
 
@@ -162,18 +164,18 @@ if 6 in gl_run:
     var_str = str(var_num)
     print(var_num)
     print('Вариант со строкой')
-    res_val=0
-    res_str=''
-    init=True
+    res_val = 0
+    res_str = ''
+    init = True
     for i in range(len(var_str)):
-        res_val+=int(var_str[i])
-        if init==False:
-            res_str=res_str+'+'
+        res_val += int(var_str[i])
+        if init == False:
+            res_str = res_str + '+'
         else:
-            res_str='('
-            init=False
-        res_str+=var_str[i]
-    res_str=str(res_val)+res_str+')'
+            res_str = '('
+            init = False
+        res_str += var_str[i]
+    res_str = str(res_val) + res_str + ')'
     print(res_str)
 
     print('Вариант с разбором разрядов цифр')
@@ -181,13 +183,13 @@ if 6 in gl_run:
     res_str = ''
     init = True
     for i in range(get_val_size(var_num)):
-        res_val += get_digit(var_num,i+1)
+        res_val += get_digit(var_num, i + 1)
         if init == False:
             res_str = res_str + '+'
         else:
             res_str = '('
             init = False
-        res_str += str(get_digit(var_num,i+1))
+        res_str += str(get_digit(var_num, i + 1))
     res_str = str(res_val) + res_str + ')'
     print(res_str)
 
@@ -211,18 +213,18 @@ if 7 in gl_run:
     var_str = str(var_num)
     print(var_num)
     print('Вариант со строкой')
-    res_val=1
-    res_str=''
-    init=True
+    res_val = 1
+    res_str = ''
+    init = True
     for i in range(len(var_str)):
-        res_val*=int(var_str[i])
-        if init==False:
-            res_str=res_str+'*'
+        res_val *= int(var_str[i])
+        if init == False:
+            res_str = res_str + '*'
         else:
-            res_str='('
-            init=False
-        res_str+=var_str[i]
-    res_str=str(res_val)+res_str+')'
+            res_str = '('
+            init = False
+        res_str += var_str[i]
+    res_str = str(res_val) + res_str + ')'
     print(res_str)
 
     print('Вариант с разбором разрядов цифр')
@@ -230,13 +232,13 @@ if 7 in gl_run:
     res_str = ''
     init = True
     for i in range(get_val_size(var_num)):
-        res_val *= get_digit(var_num,i+1)
+        res_val *= get_digit(var_num, i + 1)
         if init == False:
             res_str = res_str + '*'
         else:
             res_str = '('
             init = False
-        res_str += str(get_digit(var_num,i+1))
+        res_str += str(get_digit(var_num, i + 1))
     res_str = str(res_val) + res_str + ')'
     print(res_str)
 
@@ -250,16 +252,16 @@ if 7 in gl_run:
 '''
 if 8 in gl_run:
     print('Задание 8-------------------------------------------------------------------------------')
-    val=input('Введите число:')
-    val_str=str(val)
-    we_have_five=False
+    val = input('Введите число:')
+    val_str = str(val)
+    we_have_five = False
     for i in range(len(val_str)):
-        if val_str[i]=='5':
-            we_have_five=True
-    if we_have_five==True:
-        res='а 5 есть'
+        if val_str[i] == '5':
+            we_have_five = True
+    if we_have_five == True:
+        res = 'а 5 есть'
     else:
-        res='ы 5 нет'
+        res = 'ы 5 нет'
     print(f'Цифр{res} в числе')
     print('Окончание выполнения Задания 8----------------------------------------------------------\n\n')
 '''
@@ -275,19 +277,19 @@ if 8 in gl_run:
 '''
 if 9 in gl_run:
     print('Задание 9-------------------------------------------------------------------------------')
-    val=123123
-    val_str=str(val)
-    max_digit=-1
+    val = 123123
+    val_str = str(val)
+    max_digit = -1
     try:
         for i in range(len(val_str)):
-            if int(val_str[i])>max_digit:
-                max_digit=int(val_str[i])
+            if int(val_str[i]) > max_digit:
+                max_digit = int(val_str[i])
         print(f'Цифра - {max_digit} максимальная в числе {val_str}')
-        err=False
+        err = False
     except:
-        err=True
+        err = True
 
-    if (max_digit==-1 or err==True):
+    if (max_digit == -1 or err == True):
         print('Что-то пошло не так... Проверьте входное число')
     print('Окончание выполнения Задания 9----------------------------------------------------------\n\n')
 
@@ -304,22 +306,22 @@ if 9 in gl_run:
 '''
 if 10 in gl_run:
     print('Задание 10-------------------------------------------------------------------------------')
-    #inp = []
-    #for i in range(10):
+    # inp = []
+    # for i in range(10):
     #    inp.append(int(input('Введите цифру ' + str(i + 1) + ":")))
-    val=43554553433335554
+    val = 43554553433335554
     five_count = 0
-    five_1='ка'
+    five_1 = 'ка'
     five_234 = 'ки'
     five_many = 'ок'
     for i in range(len(str(val))):
         if str(val)[i] == '5':
             five_count += 1
-    word_end=five_many
-    if five_count==1:
-        word_end=five_1
-    if five_count in (2,3,4):
-        word_end=five_234
+    word_end = five_many
+    if five_count == 1:
+        word_end = five_1
+    if five_count in (2, 3, 4):
+        word_end = five_234
 
     print(f'В числе {five_count} 5-{word_end}.')
     print('Окончание выполнения Задания 2----------------------------------------------------------\n\n')
